@@ -30,19 +30,30 @@ Use it when you want a plan that answers:
 - What milestones reduce uncertainty first?
 - What risks, open questions, and completion criteria exist?
 
+## Recommended Workflow
+
+Use the documents in this order:
+
+1. [`research-summary.md`](./research-summary.md) - Capture evidence, rejected options, risks, and technical findings when decisions need research.
+2. [`PLAN.md`](./PLAN.md) - Turn requirements and research into an implementation plan.
+3. [`work-units.md`](./work-units.md) - Break the approved plan into executable units with dependencies and validation.
+4. [`unit-00-example/`](./unit-00-example/) - Copy for each TDD work unit and fill in `context.md`, `prompt-test.md`, `prompt-impl.md`, and `SUMMARY.md`.
+5. [`unit-00-example/SUMMARY.md`](./unit-00-example/SUMMARY.md) - Record reviewer evaluation, validation evidence, findings, and downstream readiness after the unit is implemented.
+
 ## For LLMs and Agents
 
 If you are an LLM or coding agent and a user asks you to make a plan, read [`PLAN.md`](./PLAN.md) first.
 
 Then:
 
-1. Replace placeholders with project-specific details.
-2. Identify assumptions, unknowns, and source documents.
-3. Define the goal, scope, contracts, and data flow.
-4. Create milestones in dependency order.
-5. Put validation before implementation.
-6. Make risks, decision points, and open questions explicit.
-7. Do not treat a milestone as complete until its checkpoint is satisfied.
+1. Use [`research-summary.md`](./research-summary.md) first if the plan depends on technical research, external systems, platform behavior, libraries, standards, or unstable facts.
+2. Replace placeholders with project-specific details.
+3. Identify assumptions, unknowns, and source documents.
+4. Define the goal, scope, contracts, and data flow.
+5. Create milestones in dependency order.
+6. Put validation before implementation.
+7. Make risks, decision points, and open questions explicit.
+8. Do not treat a milestone or unit as complete until its checkpoint is satisfied.
 
 The template is intentionally strict because weak plans usually fail at the boundaries: unclear scope, undocumented assumptions, missing failure cases, unstable interfaces, and no measurable definition of done.
 
