@@ -17,12 +17,12 @@ Each unit folder should contain:
 | `context.md` | Planning context, current state, decisions, dependencies, and invariants |
 | `prompt-test.md` | RED prompt: failing validation first, with only minimal sentinel stubs if needed |
 | `prompt-impl.md` | GREEN + REFACTOR prompt: implement against the red tests, then clean up safely |
+| `SUMMARY.md` | Reviewer evaluation, validation evidence, findings, follow-up, and commit history |
 
 Optional files after execution:
 
 | File | Purpose |
 | --- | --- |
-| `SUMMARY.md` | What changed, what passed, what remains, and commit history |
 | `RESULTS.md` | Fixture, benchmark, or manual verification results |
 | `ESCALATION.md` | Blocking issue that must return to planning |
 

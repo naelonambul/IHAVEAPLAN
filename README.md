@@ -91,7 +91,7 @@ This template is built around a few practical rules:
 | --- | --- |
 | [`PLAN.md`](./PLAN.md) | Reusable implementation-plan template |
 | [`work-units.md`](./work-units.md) | Template for breaking a plan into executable work units |
-| [`unit-00-example/`](./unit-00-example/) | Example TDD unit folder with context, RED prompt, and GREEN + REFACTOR prompt |
+| [`unit-00-example/`](./unit-00-example/) | Example TDD unit folder with context, RED prompt, GREEN + REFACTOR prompt, and reviewer summary |
 | [`README.md`](./README.md) | Repository overview and usage guide |
 
 ## Contributing
