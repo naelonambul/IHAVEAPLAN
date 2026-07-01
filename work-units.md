@@ -104,6 +104,8 @@ Complexity guide:
 
 Copy this section for each unit.
 
+For units executed by agents, also copy `unit-00-example/` into a numbered unit folder and fill in `context.md`, `prompt-test.md`, and `prompt-impl.md`.
+
 ### Unit [NN] - [unit-name]
 
 **Purpose:**  

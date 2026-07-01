@@ -10,6 +10,8 @@ The core file is [`PLAN.md`](./PLAN.md). It is a reusable implementation-plan te
 
 When the plan is approved, [`work-units.md`](./work-units.md) can be used to break that plan into executable work units for agents or humans.
 
+For a concrete TDD unit-folder shape, copy [`unit-00-example/`](./unit-00-example/).
+
 ## What This Is
 
 `IHAVEAPLAN` is not a framework, library, or application.
@@ -58,6 +60,12 @@ To split an approved plan into implementation chunks:
 cp work-units.md ./your-project/work-units.md
 ```
 
+To create a TDD work-unit folder:
+
+```bash
+cp -R unit-00-example ./your-project/tasks/unit-01-your-unit-name
+```
+
 You can also ask an LLM to use it directly:
 
 ```text
@@ -83,6 +91,7 @@ This template is built around a few practical rules:
 | --- | --- |
 | [`PLAN.md`](./PLAN.md) | Reusable implementation-plan template |
 | [`work-units.md`](./work-units.md) | Template for breaking a plan into executable work units |
+| [`unit-00-example/`](./unit-00-example/) | Example TDD unit folder with context, RED prompt, and GREEN + REFACTOR prompt |
 | [`README.md`](./README.md) | Repository overview and usage guide |
 
 ## Contributing
