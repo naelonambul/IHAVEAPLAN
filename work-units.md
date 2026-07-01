@@ -26,6 +26,7 @@ Each work unit should be small enough for one focused implementation pass, but l
 This work-unit breakdown is based on:
 
 - [Approved implementation plan]
+- [Research summary, if unit sequencing depends on technical findings]
 - [Product requirement / design source]
 - [Architecture or interface decision]
 - [Existing repository baseline]

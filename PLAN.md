@@ -16,6 +16,7 @@
 This plan is based on:
 
 * [Primary source document or approved requirement]
+* [Research summary, if technical choices need evidence]
 * [Architecture or design document]
 * [Known constraints]
 * [Existing implementation, if any]

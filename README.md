@@ -8,6 +8,8 @@ This repository exists for a simple reason:
 
 The core file is [`PLAN.md`](./PLAN.md). It is a reusable implementation-plan template designed to help an LLM turn vague goals, product requirements, issues, or design notes into an executable plan with scope, decisions, milestones, validation, risks, and definition of done.
 
+When technical choices need evidence, [`research-summary.md`](./research-summary.md) can be used to capture findings, rejected options, risks, and references before or alongside the plan.
+
 When the plan is approved, [`work-units.md`](./work-units.md) can be used to break that plan into executable work units for agents or humans.
 
 For a concrete TDD unit-folder shape, copy [`unit-00-example/`](./unit-00-example/).
@@ -54,6 +56,12 @@ cp PLAN.md ./your-project/PLAN.md
 
 Then fill it out before starting implementation, attaching it to an issue, PR, design review, or project handoff.
 
+To capture research behind the plan:
+
+```bash
+cp research-summary.md ./your-project/research-summary.md
+```
+
 To split an approved plan into implementation chunks:
 
 ```bash
@@ -89,6 +97,7 @@ This template is built around a few practical rules:
 
 | File | Purpose |
 | --- | --- |
+| [`research-summary.md`](./research-summary.md) | Template for research findings, evidence-backed decisions, rejected options, risks, and references |
 | [`PLAN.md`](./PLAN.md) | Reusable implementation-plan template |
 | [`work-units.md`](./work-units.md) | Template for breaking a plan into executable work units |
 | [`unit-00-example/`](./unit-00-example/) | Example TDD unit folder with context, RED prompt, GREEN + REFACTOR prompt, and reviewer summary |

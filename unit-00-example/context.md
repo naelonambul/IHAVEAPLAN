@@ -87,6 +87,7 @@ Asset rules:
 ## References
 
 - [`PLAN.md`](../PLAN.md)
+- [`research-summary.md`](../research-summary.md)
 - [`work-units.md`](../work-units.md)
 - [Requirement, issue, design doc, API doc, or research note]
 
