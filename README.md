@@ -1,16 +1,16 @@
 # IHAVEAPLAN
 
-An implementation plan template for LLMs, agents, and humans who need a clear plan before building.
+Procedural planning templates for automation-oriented LLMs and coding agents.
 
 This repository exists for a simple reason:
 
-> When an LLM needs a plan, it should have somewhere concrete to start.
+> When an automation LLM needs a plan, it should have somewhere concrete to start.
 
-The core file is [`PLAN.md`](./PLAN.md). It is a reusable implementation-plan template designed to help an LLM turn vague goals, product requirements, issues, or design notes into an executable plan with scope, decisions, milestones, validation, risks, and definition of done.
+The core file is [`PLAN.md`](./PLAN.md). It is a reusable implementation-plan template designed to help an automation LLM turn vague goals, product requirements, issues, or design notes into an executable plan with scope, decisions, milestones, validation, risks, and definition of done.
 
 When technical choices need evidence, [`research-summary.md`](./research-summary.md) can be used to capture findings, rejected options, risks, and references before or alongside the plan.
 
-When the plan is approved, [`work-units.md`](./work-units.md) can be used to break that plan into executable work units for agents or humans.
+When the plan is approved, [`work-units.md`](./work-units.md) can be used to break that plan into executable work units for agents.
 
 For a concrete TDD unit-folder shape, copy [`unit-00-example/`](./unit-00-example/).
 
@@ -18,7 +18,7 @@ For a concrete TDD unit-folder shape, copy [`unit-00-example/`](./unit-00-exampl
 
 `IHAVEAPLAN` is not a framework, library, or application.
 
-It is a planning document template for software implementation work. It is meant to be copied, adapted, and filled in before execution begins.
+It is a procedural document set for LLM-driven software implementation work. It is meant to be copied, adapted, and filled in by automation agents before execution begins.
 
 Use it when you want a plan that answers:
 
@@ -57,15 +57,15 @@ Then:
 
 The template is intentionally strict because weak plans usually fail at the boundaries: unclear scope, undocumented assumptions, missing failure cases, unstable interfaces, and no measurable definition of done.
 
-## For Humans
+## For Human Operators
 
-Copy the template into your project:
+Human operators can seed an agent workflow by copying the templates into a project:
 
 ```bash
 cp PLAN.md ./your-project/PLAN.md
 ```
 
-Then fill it out before starting implementation, attaching it to an issue, PR, design review, or project handoff.
+Then have the LLM fill it out before implementation, attaching the result to an issue, PR, design review, or project handoff when useful.
 
 To capture research behind the plan:
 
@@ -114,11 +114,11 @@ This template is built around a few practical rules:
 | [`unit-00-example/`](./unit-00-example/) | Example TDD unit folder with context, RED prompt, GREEN + REFACTOR prompt, and reviewer summary |
 | [`README.md`](./README.md) | Repository overview and usage guide |
 
-## Contributing
+## Adjusting
 
-Issues and pull requests are welcome if they make the template more useful across projects.
+Changes should make the templates easier for automation LLMs to follow.
 
-Good contributions usually:
+Good adjustments usually:
 
 - improve planning clarity
 - make the template easier for LLMs to follow
@@ -130,4 +130,4 @@ Avoid project-specific assumptions unless they are presented as replaceable exam
 
 ## License
 
-No license has been added yet. Add an explicit open-source license before relying on this repository for public reuse terms.
+No license has been added. This repository is currently a public reference for automation LLM workflows, not a packaged library.
