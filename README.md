@@ -8,6 +8,8 @@ This repository exists for a simple reason:
 
 The core file is [`PLAN.md`](./PLAN.md). It is a reusable implementation-plan template designed to help an LLM turn vague goals, product requirements, issues, or design notes into an executable plan with scope, decisions, milestones, validation, risks, and definition of done.
 
+When the plan is approved, [`work-units.example.md`](./work-units.example.md) can be used to break that plan into executable work units for agents or humans.
+
 ## What This Is
 
 `IHAVEAPLAN` is not a framework, library, or application.
@@ -50,6 +52,12 @@ cp PLAN.md ./your-project/PLAN.md
 
 Then fill it out before starting implementation, attaching it to an issue, PR, design review, or project handoff.
 
+To split an approved plan into implementation chunks:
+
+```bash
+cp work-units.example.md ./your-project/work-units.md
+```
+
 You can also ask an LLM to use it directly:
 
 ```text
@@ -74,6 +82,7 @@ This template is built around a few practical rules:
 | File | Purpose |
 | --- | --- |
 | [`PLAN.md`](./PLAN.md) | Reusable implementation-plan template |
+| [`work-units.example.md`](./work-units.example.md) | Template for breaking a plan into executable work units |
 | [`README.md`](./README.md) | Repository overview and usage guide |
 
 ## Contributing
