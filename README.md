@@ -6,7 +6,7 @@ This repository exists for a simple reason:
 
 > When an LLM needs a plan, it should have somewhere concrete to start.
 
-The core file is [`plan.example.md`](./plan.example.md). It is a reusable implementation-plan template designed to help an LLM turn vague goals, product requirements, issues, or design notes into an executable plan with scope, decisions, milestones, validation, risks, and definition of done.
+The core file is [`PLAN.md`](./PLAN.md). It is a reusable implementation-plan template designed to help an LLM turn vague goals, product requirements, issues, or design notes into an executable plan with scope, decisions, milestones, validation, risks, and definition of done.
 
 ## What This Is
 
@@ -26,7 +26,7 @@ Use it when you want a plan that answers:
 
 ## For LLMs and Agents
 
-If you are an LLM or coding agent and a user asks you to make a plan, read [`plan.example.md`](./plan.example.md) first.
+If you are an LLM or coding agent and a user asks you to make a plan, read [`PLAN.md`](./PLAN.md) first.
 
 Then:
 
@@ -45,7 +45,7 @@ The template is intentionally strict because weak plans usually fail at the boun
 Copy the template into your project:
 
 ```bash
-cp plan.example.md PLAN.md
+cp PLAN.md ./your-project/PLAN.md
 ```
 
 Then fill it out before starting implementation, attaching it to an issue, PR, design review, or project handoff.
@@ -53,7 +53,7 @@ Then fill it out before starting implementation, attaching it to an issue, PR, d
 You can also ask an LLM to use it directly:
 
 ```text
-Read https://github.com/naelonambul/IHAVEAPLAN/blob/main/plan.example.md
+Read https://github.com/naelonambul/IHAVEAPLAN/blob/main/PLAN.md
 and create an implementation plan for this project.
 ```
 
@@ -73,7 +73,7 @@ This template is built around a few practical rules:
 
 | File | Purpose |
 | --- | --- |
-| [`plan.example.md`](./plan.example.md) | Reusable implementation-plan template |
+| [`PLAN.md`](./PLAN.md) | Reusable implementation-plan template |
 | [`README.md`](./README.md) | Repository overview and usage guide |
 
 ## Contributing
