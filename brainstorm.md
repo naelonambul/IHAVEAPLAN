@@ -6,7 +6,7 @@
 | Date          | [YYYY-MM-DD]                                       |
 | Owner         | [Person / Agent / Team]                           |
 | Idea (1 line) | [The vague idea in a single sentence]             |
-| Next document | [`research-summary.md`](./research-summary.md) or [`PLAN.md`](./PLAN.md) |
+| Next document | [`research-summary.md`](./research-summary.md) or [`plan.md`](./plan.md) |
 
 ---
 
@@ -28,7 +28,7 @@ in some concrete way]."* Do not let this document stop at a solution statement.
 This document is:
 
 - **Optional** — skip it if the direction and wedge are already clear; go straight
-  to `research-summary.md` or `PLAN.md`.
+  to `research-summary.md` or `plan.md`.
 - **Exploratory and disposable** — it is allowed to be wrong. Park ideas, don't
   polish them.
 - **Evidence-free** — no citations, benchmarks, or confidence ratings. That
@@ -173,7 +173,7 @@ Then hand off:
 
 - **Needs evidence first** → [`research-summary.md`](./research-summary.md) (start
   at §1 with the questions above).
-- **Direction is clear and low-risk** → [`PLAN.md`](./PLAN.md) directly.
+- **Direction is clear and low-risk** → [`plan.md`](./plan.md) directly.
 
 > Keep this file as a record of *why* the direction was chosen and what was parked.
 > If the direction later collapses, return here rather than starting from scratch.
