@@ -61,14 +61,6 @@ If agents are used, keep roles explicit:
 - **Implementation Agent:** implements the unit against the approved validation.
 - **Review Agent:** checks regressions, integration risk, and definition of done.
 
-### Context and memory budget
-
-Give each unit a step/token budget and only the context it needs: the task, files touched, and recent results (short-term), plus durable decisions from `plan.md` and findings from `research-summary.md` retrieved on demand (long-term). When a long-horizon unit nears its budget, compact — summarize progress and decisions and continue from the summary. Record decisions in the durable docs, not only in the conversation, so a fresh context can rebuild state.
-
-### Sub-agent handoff
-
-Give sub-agents an isolated context scoped to one sub-task, and have them return a short summary rather than their full trajectory. Each handoff should state: the sub-task, the result (pass/fail), the evidence (commands or tests run), contracts touched, and any follow-up or open questions. The orchestrator synthesizes these before scheduling dependent units.
-
 ---
 
 ## 3. Execution Tracks

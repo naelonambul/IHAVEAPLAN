@@ -50,10 +50,7 @@ Preserve the separation between files:
 
 ## Execution loop
 
-When executing a unit, run: pull only the context this unit needs → act in small
-reversible steps (reason → act → observe) → validate against an external signal
-(tests, schema, contract) before trusting your own judgment → reflect against the
-acceptance criteria and refine if it fails → checkpoint.
-
-Halt and escalate instead of looping when the same validation keeps failing, a step
-would exceed the unit's budget, or an action is destructive or out of scope.
+Run the validation-first loop in `plan.md` §3 and reflect before each checkpoint.
+Halt and escalate instead of looping when the same validation keeps failing, the
+unit grows well beyond its intended scope, or an action is destructive or
+irreversible.
