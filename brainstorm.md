@@ -29,17 +29,13 @@ This document is:
 
 - **Optional** — skip it if the direction and wedge are already clear; go straight
   to `research-summary.md` or `plan.md`.
-- **Exploratory and disposable** — it is allowed to be wrong. Park ideas, don't
-  polish them.
+- **Exploratory** — it is allowed to be wrong; park ideas, don't polish them.
 - **Evidence-free** — no citations, benchmarks, or confidence ratings. That
   discipline belongs to `research-summary.md`.
 
 This document is **not** a plan and **not** a research summary. It makes **no
 final decisions**, commits to no stack, and defines no milestones for execution.
 It ends by producing *questions*, not answers.
-
-> **Usage note:** when an idea is still vague, explore it here first, choose a
-> tentative direction, and write the research questions before moving into a plan.
 
 ---
 
@@ -94,8 +90,11 @@ way to compare and pick where to look first.
 | [Candidate B] | [H/M/L] | [H/M/L] | [H/M/L] | [H/M/L] | [gut-feel note] |
 | [Candidate C] | [H/M/L] | [H/M/L] | [H/M/L] | [H/M/L] | [gut-feel note] |
 
-Add or drop criteria freely (e.g. portfolio value, competition, risk). The table
-is a thinking aid, not a scorecard to defend.
+These columns are product-oriented defaults. For internal tooling or engineering
+work, swap in criteria such as operational risk, maintainability, integration
+complexity, migration cost, or learning value.
+
+Add or drop criteria freely. The table is a thinking aid, not a scorecard to defend.
 
 **Leaning toward:** [Candidate X, tentatively — one line on why.]
 
