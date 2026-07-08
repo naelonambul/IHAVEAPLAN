@@ -2,7 +2,7 @@
 
 This folder is a reusable example structure for one TDD work unit.
 
-Use it after `PLAN.md` and `work-units.md` have identified a concrete unit of work. Copy this folder, rename it to the real unit number and slug, then replace placeholders in each file.
+Use it after `plan.md` and `work-units.md` have identified a concrete unit of work. Copy this folder, rename it to the real unit number and slug, then replace placeholders in each file.
 
 ```bash
 cp -R unit-00-example unit-01-your-unit-name
@@ -54,6 +54,8 @@ unit-01-domain-behavior
 unit-02-integration-boundary
 unit-03-user-facing-flow
 ```
+
+Inside each unit folder, keep conventional uppercase `README.md` and `SUMMARY.md`, and lowercase `context.md`, `prompt-test.md`, and `prompt-impl.md`.
 
 Commit message examples:
 
