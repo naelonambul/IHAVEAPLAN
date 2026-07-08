@@ -6,7 +6,7 @@ This repository exists for a simple reason:
 
 > When an automation LLM needs a plan, it should have somewhere concrete to start.
 
-The core file is [`PLAN.md`](./PLAN.md). It is a reusable implementation-plan template designed to help an automation LLM turn vague goals, product requirements, issues, or design notes into an executable plan with scope, decisions, milestones, validation, risks, and definition of done.
+The core file is [`plan.md`](./plan.md). It is a reusable implementation-plan template designed to help an automation LLM turn vague goals, product requirements, issues, or design notes into an executable plan with scope, decisions, milestones, validation, risks, and definition of done.
 
 When the idea is still vague — no settled wedge, unstable hypotheses, too many options, no first milestone — [`brainstorm.md`](./brainstorm.md) is an **optional** front door. It is **problem-first** (reframe the idea as a problem: whose pain, why the current workaround is insufficient), exploratory, and disposable: it compares candidate directions and produces the research questions to carry forward, without making implementation decisions.
 
@@ -42,7 +42,7 @@ certainty actually is, and skip stages that are already settled.
    pick a tentative direction, and produce research questions. Skip it when the
    direction and wedge are already clear.
 1. [`research-summary.md`](./research-summary.md) - Capture evidence, rejected options, risks, and technical findings when decisions need research. (Seed §1 from the research questions produced by `brainstorm.md`.)
-2. [`PLAN.md`](./PLAN.md) - Turn requirements and research into an implementation plan.
+2. [`plan.md`](./plan.md) - Turn requirements and research into an implementation plan.
 3. [`work-units.md`](./work-units.md) - Break the approved plan into executable units with dependencies and validation.
 4. [`unit-00-example/`](./unit-00-example/) - Copy for each TDD work unit and fill in `context.md`, `prompt-test.md`, `prompt-impl.md`, and `SUMMARY.md`.
 5. [`unit-00-example/SUMMARY.md`](./unit-00-example/SUMMARY.md) - Record reviewer evaluation, validation evidence, findings, and downstream readiness after the unit is implemented.
@@ -51,7 +51,7 @@ Where to start:
 
 - **Vague idea, unstable wedge, too many options** → `brainstorm.md`.
 - **Direction chosen, decisions need evidence** → `research-summary.md`.
-- **Direction and evidence are settled** → `PLAN.md`.
+- **Direction and evidence are settled** → `plan.md`.
 
 `brainstorm.md` is deliberately lighter than `research-summary.md`, requires no
 citations, and makes no final decisions — it only chooses a direction to
@@ -59,11 +59,11 @@ investigate and hands off the questions.
 
 ## For LLMs and Agents
 
-If you are an LLM or coding agent and a user asks you to make a plan, read [`PLAN.md`](./PLAN.md) first.
+If you are an LLM or coding agent and a user asks you to make a plan, read [`plan.md`](./plan.md) first.
 
 Then:
 
-0. If the user only has a vague idea — no chosen wedge, unstable hypotheses, many unexplored options — start with [`brainstorm.md`](./brainstorm.md) to choose a tentative direction and produce research questions **before** planning. Do not jump from a vague idea straight to `PLAN.md`. Skip this step when the direction is already clear.
+0. If the user only has a vague idea — no chosen wedge, unstable hypotheses, many unexplored options — start with [`brainstorm.md`](./brainstorm.md) to choose a tentative direction and produce research questions **before** planning. Do not jump from a vague idea straight to `plan.md`. Skip this step when the direction is already clear.
 1. Use [`research-summary.md`](./research-summary.md) first if the plan depends on technical research, external systems, platform behavior, libraries, standards, or unstable facts.
 2. Replace placeholders with project-specific details.
 3. Identify assumptions, unknowns, and source documents.
@@ -80,7 +80,7 @@ The template is intentionally strict because weak plans usually fail at the boun
 Human operators can seed an agent workflow by copying the templates into a project:
 
 ```bash
-cp PLAN.md ./your-project/PLAN.md
+cp plan.md ./your-project/plan.md
 ```
 
 To start from a vague idea (optional), copy the brainstorm front door first:
@@ -112,7 +112,7 @@ cp -R unit-00-example ./your-project/tasks/unit-01-your-unit-name
 You can also ask an LLM to use it directly:
 
 ```text
-Read https://github.com/naelonambul/IHAVEAPLAN/blob/main/PLAN.md
+Read https://github.com/naelonambul/IHAVEAPLAN/blob/main/plan.md
 and create an implementation plan for this project.
 ```
 
@@ -132,9 +132,10 @@ This template is built around a few practical rules:
 
 | File | Purpose |
 | --- | --- |
+| [`AGENTS.md`](./AGENTS.md) | Repo-level guidance for coding agents and automation LLMs |
 | [`brainstorm.md`](./brainstorm.md) | *Optional* front door for a vague idea: explore candidate directions/wedges, constraints, and first milestones, choose a tentative direction, and emit research questions |
 | [`research-summary.md`](./research-summary.md) | Template for research findings, evidence-backed decisions, rejected options, risks, and references |
-| [`PLAN.md`](./PLAN.md) | Reusable implementation-plan template |
+| [`plan.md`](./plan.md) | Reusable implementation-plan template |
 | [`work-units.md`](./work-units.md) | Template for breaking a plan into executable work units |
 | [`unit-00-example/`](./unit-00-example/) | Example TDD unit folder with context, RED prompt, GREEN + REFACTOR prompt, and reviewer summary |
 | [`README.md`](./README.md) | Repository overview and usage guide |
