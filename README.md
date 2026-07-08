@@ -45,7 +45,6 @@ certainty actually is, and skip stages that are already settled.
 2. [`plan.md`](./plan.md) - Turn requirements and research into an implementation plan.
 3. [`work-units.md`](./work-units.md) - Break the approved plan into executable units with dependencies and validation.
 4. [`unit-00-example/`](./unit-00-example/) - Copy for each TDD work unit and fill in `context.md`, `prompt-test.md`, `prompt-impl.md`, and `SUMMARY.md`.
-5. [`unit-00-example/SUMMARY.md`](./unit-00-example/SUMMARY.md) - Record reviewer evaluation, validation evidence, findings, and downstream readiness after the unit is implemented.
 
 Where to start:
 
@@ -59,21 +58,9 @@ investigate and hands off the questions.
 
 ## For LLMs and Agents
 
-If you are an LLM or coding agent and a user asks you to make a plan, read [`plan.md`](./plan.md) first.
+Read [`AGENTS.md`](./AGENTS.md) first for the agent-facing workflow, naming rules, and output-location guidance. Then use the templates above according to the project's current certainty level.
 
-Then:
-
-0. If the user only has a vague idea — no chosen wedge, unstable hypotheses, many unexplored options — start with [`brainstorm.md`](./brainstorm.md) to choose a tentative direction and produce research questions **before** planning. Do not jump from a vague idea straight to `plan.md`. Skip this step when the direction is already clear.
-1. Use [`research-summary.md`](./research-summary.md) first if the plan depends on technical research, external systems, platform behavior, libraries, standards, or unstable facts.
-2. Replace placeholders with project-specific details.
-3. Identify assumptions, unknowns, and source documents.
-4. Define the goal, scope, contracts, and data flow.
-5. Create milestones in dependency order.
-6. Put validation before implementation.
-7. Make risks, decision points, and open questions explicit.
-8. Do not treat a milestone or unit as complete until its checkpoint is satisfied.
-
-The template is intentionally strict because weak plans usually fail at the boundaries: unclear scope, undocumented assumptions, missing failure cases, unstable interfaces, and no measurable definition of done.
+The template set is intentionally strict because weak plans usually fail at the boundaries: unclear scope, undocumented assumptions, missing failure cases, unstable interfaces, and no measurable definition of done.
 
 ## For Human Operators
 
@@ -112,8 +99,8 @@ cp -R unit-00-example ./your-project/tasks/unit-01-your-unit-name
 You can also ask an LLM to use it directly:
 
 ```text
-Read https://github.com/naelonambul/IHAVEAPLAN/blob/main/plan.md
-and create an implementation plan for this project.
+Read https://github.com/naelonambul/IHAVEAPLAN/blob/main/AGENTS.md
+and use the appropriate template for this project.
 ```
 
 ## Planning Principles
