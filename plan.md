@@ -100,6 +100,8 @@ All implementation work follows this loop:
 
    * Confirm tests, acceptance criteria, documentation, and integration assumptions still hold.
 
+**Reflect before each checkpoint:** score the result against the acceptance criteria, grounded in an external signal (test run, schema, contract) rather than the implementer's own judgment. Where judgment is unavoidable, have a different role act as evaluator to avoid self-approval, and record the verdict. On failure, capture the reason, refine, and re-validate — do not close a checkpoint on an unverified "looks done."
+
 No milestone is complete until its checkpoint criteria are satisfied.
 
 ---

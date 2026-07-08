@@ -104,6 +104,16 @@ Confirm what this unit intentionally did not do.
 | --- | --- | --- | --- |
 | [Risk or task] | [Owner] | [Unit / date] | [Yes / No / Unit IDs] |
 
+## Trajectory and Reflection
+
+| Item | Value |
+| --- | --- |
+| Steps / tool calls (summary) | [High-level path taken] |
+| Retries / dead-ends | [What failed and how it was resolved] |
+| Budget used | [Steps / tokens / cost vs. limit] |
+| Human interventions | [When and why a human was looped in] |
+| Lesson carried forward | [Insight for future units] |
+
 ## Commit History
 
 ```text

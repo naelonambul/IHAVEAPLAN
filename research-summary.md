@@ -15,6 +15,8 @@
 
 This document summarizes research that informs planning and implementation.
 
+It also acts as durable project memory: the long-term store that later plans and work units retrieve findings and decisions from instead of re-deriving them.
+
 It should not be a loose collection of links. It should explain what was investigated, what evidence was found, which decisions it supports, which options were rejected, and what risks or open questions remain.
 
 Use this before or alongside `plan.md` when technical choices, external dependencies, product assumptions, standards, libraries, platforms, APIs, or architecture decisions need evidence.

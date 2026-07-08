@@ -47,3 +47,13 @@ Preserve the separation between files:
 - `plan.md` defines executable implementation scope and checkpoints.
 - `work-units.md` breaks an approved plan into agent-sized work units.
 - `unit-00-example/` provides a concrete TDD folder shape for one executable unit.
+
+## Execution loop
+
+When executing a unit, run: pull only the context this unit needs → act in small
+reversible steps (reason → act → observe) → validate against an external signal
+(tests, schema, contract) before trusting your own judgment → reflect against the
+acceptance criteria and refine if it fails → checkpoint.
+
+Halt and escalate instead of looping when the same validation keeps failing, a step
+would exceed the unit's budget, or an action is destructive or out of scope.
