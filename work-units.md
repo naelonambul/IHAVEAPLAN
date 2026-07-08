@@ -5,7 +5,7 @@
 | Status | [Draft / Approved / Superseded] |
 | Date | [YYYY-MM-DD] |
 | Owner | [Owner / Team / Agent] |
-| Source of Truth | [PLAN.md / PRD / issue / design doc] |
+| Source of Truth | [plan.md / PRD / issue / design doc] |
 | Phase / Release | [Phase, milestone, or release name] |
 | Methodology | [TDD / incremental delivery / agent handoff / other] |
 
@@ -15,7 +15,7 @@
 
 This document breaks an approved implementation plan into small, executable work units.
 
-Use this after `PLAN.md` exists. The plan explains what should be built and why. This file explains how to split the work into independently executable units with clear dependencies, validation, and completion criteria.
+Use this after `plan.md` exists. The plan explains what should be built and why. This file explains how to split the work into independently executable units with clear dependencies, validation, and completion criteria.
 
 Each work unit should be small enough for one focused implementation pass, but large enough to deliver a meaningful behavior, interface, or integration step.
 
