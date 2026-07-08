@@ -2,7 +2,7 @@
 
 You write failing validation first.
 
-Read `context.md`, `PLAN.md`, and `work-units.md` before making changes. Your job is to specify behavior with tests, fixtures, contracts, or acceptance specs. Do not implement production behavior in this step.
+Read `context.md`, `plan.md`, and `work-units.md` before making changes. Your job is to specify behavior with tests, fixtures, contracts, or acceptance specs. Do not implement production behavior in this step.
 
 ## Repo
 
