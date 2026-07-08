@@ -5,7 +5,7 @@
 | Status | [Draft / Reviewed / Superseded] |
 | Date | [YYYY-MM-DD] |
 | Owner | [Researcher / Agent / Team] |
-| Companion Plan | [`PLAN.md`](./PLAN.md) |
+| Companion Plan | [`plan.md`](./plan.md) |
 | Companion Work Units | [`work-units.md`](./work-units.md) |
 | Source Materials | [PRD / design doc / issue / docs / papers / repo baseline] |
 
@@ -17,7 +17,7 @@ This document summarizes research that informs planning and implementation.
 
 It should not be a loose collection of links. It should explain what was investigated, what evidence was found, which decisions it supports, which options were rejected, and what risks or open questions remain.
 
-Use this before or alongside `PLAN.md` when technical choices, external dependencies, product assumptions, standards, libraries, platforms, APIs, or architecture decisions need evidence.
+Use this before or alongside `plan.md` when technical choices, external dependencies, product assumptions, standards, libraries, platforms, APIs, or architecture decisions need evidence.
 
 ---
 
@@ -57,7 +57,7 @@ Confidence guide:
 
 Decision checkpoint:
 
-- [ ] Decisions are reflected in `PLAN.md`.
+- [ ] Decisions are reflected in `plan.md`.
 - [ ] Work units depending on these decisions reference the relevant findings.
 - [ ] Low-confidence decisions have a spike, fallback, or revisit trigger.
 
@@ -104,7 +104,7 @@ Use one subsection per meaningful research area.
 
 **Affected plan or units:**
 
-- [`PLAN.md` section / milestone]
+- [`plan.md` section / milestone]
 - [`work-units.md` unit]
 - [`unit-XX-name/context.md`]
 
@@ -130,7 +130,7 @@ Use one subsection per meaningful research area.
 
 **Affected plan or units:**
 
-- [`PLAN.md` section / milestone]
+- [`plan.md` section / milestone]
 - [`work-units.md` unit]
 - [`unit-XX-name/context.md`]
 
@@ -161,7 +161,7 @@ Recommendation checkpoint:
 
 Risk checkpoint:
 
-- [ ] High-impact risks are represented in `PLAN.md`.
+- [ ] High-impact risks are represented in `plan.md`.
 - [ ] Risks that affect sequencing are reflected in `work-units.md`.
 - [ ] Mitigations are testable or observable.
 - [ ] Manual fallback or recovery paths are documented where automation can fail.
