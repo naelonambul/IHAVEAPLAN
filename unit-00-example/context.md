@@ -2,7 +2,7 @@
 
 ## Why
 
-[Explain why this unit exists. Link it to `PLAN.md`, `work-units.md`, a milestone, issue, PRD, design decision, bug, or risk.]
+[Explain why this unit exists. Link it to `plan.md`, `work-units.md`, a milestone, issue, PRD, design decision, bug, or risk.]
 
 ## Goal
 
@@ -86,7 +86,7 @@ Asset rules:
 
 ## References
 
-- [`PLAN.md`](../PLAN.md)
+- [`plan.md`](../plan.md)
 - [`research-summary.md`](../research-summary.md)
 - [`work-units.md`](../work-units.md)
 - [Requirement, issue, design doc, API doc, or research note]
