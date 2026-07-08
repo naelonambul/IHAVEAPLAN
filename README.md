@@ -8,6 +8,8 @@ This repository exists for a simple reason:
 
 The core file is [`PLAN.md`](./PLAN.md). It is a reusable implementation-plan template designed to help an automation LLM turn vague goals, product requirements, issues, or design notes into an executable plan with scope, decisions, milestones, validation, risks, and definition of done.
 
+When the idea is still vague — no settled wedge, unstable hypotheses, too many options, no first milestone — [`brainstorm.md`](./brainstorm.md) is an **optional** front door. It is **problem-first** (reframe the idea as a problem: whose pain, why the current workaround is insufficient), exploratory, and disposable: it compares candidate directions and produces the research questions to carry forward, without making implementation decisions.
+
 When technical choices need evidence, [`research-summary.md`](./research-summary.md) can be used to capture findings, rejected options, risks, and references before or alongside the plan.
 
 When the plan is approved, [`work-units.md`](./work-units.md) can be used to break that plan into executable work units for agents.
@@ -32,13 +34,28 @@ Use it when you want a plan that answers:
 
 ## Recommended Workflow
 
-Use the documents in this order:
+Use the documents in this order. **You can enter at any stage** — start where your
+certainty actually is, and skip stages that are already settled.
 
-1. [`research-summary.md`](./research-summary.md) - Capture evidence, rejected options, risks, and technical findings when decisions need research.
+0. [`brainstorm.md`](./brainstorm.md) *(optional)* - Start here when the idea is
+   vague: explore candidate directions/wedges, constraints, and first milestones,
+   pick a tentative direction, and produce research questions. Skip it when the
+   direction and wedge are already clear.
+1. [`research-summary.md`](./research-summary.md) - Capture evidence, rejected options, risks, and technical findings when decisions need research. (Seed §1 from the research questions produced by `brainstorm.md`.)
 2. [`PLAN.md`](./PLAN.md) - Turn requirements and research into an implementation plan.
 3. [`work-units.md`](./work-units.md) - Break the approved plan into executable units with dependencies and validation.
 4. [`unit-00-example/`](./unit-00-example/) - Copy for each TDD work unit and fill in `context.md`, `prompt-test.md`, `prompt-impl.md`, and `SUMMARY.md`.
 5. [`unit-00-example/SUMMARY.md`](./unit-00-example/SUMMARY.md) - Record reviewer evaluation, validation evidence, findings, and downstream readiness after the unit is implemented.
+
+Where to start:
+
+- **Vague idea, unstable wedge, too many options** → `brainstorm.md`.
+- **Direction chosen, decisions need evidence** → `research-summary.md`.
+- **Direction and evidence are settled** → `PLAN.md`.
+
+`brainstorm.md` is deliberately lighter than `research-summary.md`, requires no
+citations, and makes no final decisions — it only chooses a direction to
+investigate and hands off the questions.
 
 ## For LLMs and Agents
 
@@ -46,6 +63,7 @@ If you are an LLM or coding agent and a user asks you to make a plan, read [`PLA
 
 Then:
 
+0. If the user only has a vague idea — no chosen wedge, unstable hypotheses, many unexplored options — start with [`brainstorm.md`](./brainstorm.md) to choose a tentative direction and produce research questions **before** planning. Do not jump from a vague idea straight to `PLAN.md`. Skip this step when the direction is already clear.
 1. Use [`research-summary.md`](./research-summary.md) first if the plan depends on technical research, external systems, platform behavior, libraries, standards, or unstable facts.
 2. Replace placeholders with project-specific details.
 3. Identify assumptions, unknowns, and source documents.
@@ -63,6 +81,12 @@ Human operators can seed an agent workflow by copying the templates into a proje
 
 ```bash
 cp PLAN.md ./your-project/PLAN.md
+```
+
+To start from a vague idea (optional), copy the brainstorm front door first:
+
+```bash
+cp brainstorm.md ./your-project/brainstorm.md
 ```
 
 Then have the LLM fill it out before implementation, attaching the result to an issue, PR, design review, or project handoff when useful.
@@ -108,6 +132,7 @@ This template is built around a few practical rules:
 
 | File | Purpose |
 | --- | --- |
+| [`brainstorm.md`](./brainstorm.md) | *Optional* front door for a vague idea: explore candidate directions/wedges, constraints, and first milestones, choose a tentative direction, and emit research questions |
 | [`research-summary.md`](./research-summary.md) | Template for research findings, evidence-backed decisions, rejected options, risks, and references |
 | [`PLAN.md`](./PLAN.md) | Reusable implementation-plan template |
 | [`work-units.md`](./work-units.md) | Template for breaking a plan into executable work units |
