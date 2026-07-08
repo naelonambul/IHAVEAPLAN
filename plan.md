@@ -230,6 +230,8 @@ Asset checkpoint:
 
 Each milestone should deliver one coherent capability and leave the system in a working state.
 
+Milestones 0-4 below are illustrative defaults. Adjust, rename, split, or remove milestones to match the project; five milestones are not required.
+
 ---
 
 ### Milestone 0 — Foundation and Skeleton
