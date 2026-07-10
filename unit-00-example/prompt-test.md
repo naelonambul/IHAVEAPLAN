@@ -2,7 +2,7 @@
 
 You write failing validation first.
 
-This is a derived instruction artifact. Read the approved `context.md`; read a governing source only when that contract directs you to it. If this prompt conflicts with the contract or its recorded digest does not match, stop. Your job is to specify the contracted behavior with tests, fixtures, contracts, or acceptance specs. Do not implement production behavior in this step.
+This is a derived instruction artifact. Read the approved `context.md`; read a governing source only when that contract directs you to it. If this prompt conflicts with the contract, stop. Your job is to specify the contracted behavior with tests, fixtures, contracts, or acceptance specs. Do not implement production behavior in this step.
 
 ## Repo
 

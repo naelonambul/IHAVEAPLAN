@@ -16,9 +16,10 @@ When the plan is approved, [`work-units.md`](./work-units.md) can be used to bre
 
 For execution engines, [`planning-contract.md`](./planning-contract.md) defines the
 versioned handoff. The approved unit `context.md` is the authoritative execution
-input; source revisions and digests, RED/GREEN semantics, boundaries,
-dependencies, provenance, and approval points make it snapshot-verifiable. The
-test and implementation prompts are derived and cannot override that contract.
+input; profile-appropriate provenance, RED/GREEN requirements, boundaries,
+dependencies, and approval points make it snapshot-verifiable. StageRelay hashes
+that contract externally and records observed execution evidence. Test and
+implementation prompts are derived and cannot override the contract.
 
 For a concrete TDD unit-folder shape, copy [`unit-00-example/`](./unit-00-example/).
 

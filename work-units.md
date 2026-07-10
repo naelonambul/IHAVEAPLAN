@@ -70,6 +70,10 @@ If agents are used, keep roles explicit:
 
 Group units that can move in parallel without blocking each other.
 
+A small profile with one bounded unit may omit this section and the portfolio
+index below. Medium and large profiles use them when more than one unit exists;
+large always records its complete graph and shared-resource constraints.
+
 - **Track A - [Track Name]:** [Unit IDs in dependency order]
 - **Track B - [Track Name]:** [Unit IDs in dependency order]
 - **Track C - [Track Name]:** [Unit IDs in dependency order]
@@ -167,11 +171,11 @@ fields and profile requirements.
 - Contract version: [1.0]
 - Planning profile: [small / medium / large]
 - Approval: [approved by identity at timestamp]
-- Provenance: [source revision plus governing-source and derived-artifact SHA-256 digests]
+- Provenance: [source revision; medium/large governing-source SHA-256 digests]
 - Boundaries: [allowed paths, forbidden paths, and operational limits]
-- Dependencies: [unit ID plus required snapshot/commit/contract digest, or `none`]
-- Concurrency: [named shared resources and access mode, or `none`]
-- RED/GREEN: [expected behavioral failure contract and required completion evidence]
+- Dependencies: [medium/large immutable identities or reviewed `none`; small may omit]
+- Concurrency: [medium/large named shared resources/access mode; small may omit]
+- RED/GREEN: [expected behavioral RED and required GREEN evidence specification]
 - Reapproval/replan triggers: [contract fields and project-specific triggers]
 
 **Handoff notes:**

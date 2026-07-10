@@ -5,7 +5,7 @@ This folder is a reusable example structure for one TDD work unit.
 Use it after `plan.md` and `work-units.md` have identified a concrete unit of
 work. Copy this folder, rename it to the real unit number and slug, then apply the
 project's `planning-contract.md`. Approve `context.md` before execution and
-replace every placeholder in snapshotted files.
+replace every placeholder required by its selected profile.
 
 ```bash
 cp -R unit-00-example unit-01-your-unit-name
@@ -17,7 +17,7 @@ Each unit folder should contain:
 
 | File | Purpose |
 | --- | --- |
-| `context.md` | Authoritative versioned execution contract: identity, provenance, boundaries, dependencies, instructions, validation, and approvals |
+| `context.md` | Authoritative versioned execution contract with profile-appropriate identity, provenance, boundaries, dependencies, instructions, validation, and approvals |
 | `prompt-test.md` | Derived RED instructions; cannot override `context.md` |
 | `prompt-impl.md` | Derived GREEN + REFACTOR instructions; cannot override `context.md` |
 | `SUMMARY.md` | Generated reviewer evaluation and execution evidence |
@@ -31,11 +31,11 @@ Optional files after execution:
 
 ## Execution Order
 
-1. Approve `context.md`; derive prompts and record their digests.
-2. Snapshot and verify the contract, source revision, sources, dependencies, boundaries, shared resources, approvals, and artifact digests.
+1. Complete and human-approve `context.md`; then derive any prompts from it.
+2. Have StageRelay import the contract, compute its SHA-256 externally, and verify the profile-required revision, provenance, dependencies, boundaries, resources, and approvals.
 3. Run `prompt-test.md` and accept RED only when it matches the contract's behavioral failure semantics.
 4. Run `prompt-impl.md` against the unchanged approved contract.
-5. Capture the required targeted and full-suite GREEN evidence.
+5. Have StageRelay record observed GREEN evidence against the contract's required evidence specification.
 6. Record summary, provenance, risks, and follow-up work.
 
 ## TDD Rules
@@ -46,7 +46,10 @@ Optional files after execution:
 - Tests are executable evidence for the approved unit contract; they do not supersede it.
 - Production code should be the minimum needed to turn the approved validation green.
 - Refactoring happens only while tests remain green.
-- Any change to a contracted test expectation requires the reapproval or replanning declared in `context.md`; a commit note alone is insufficient.
+- A prompt-only byte change does not require contract reapproval. A change to contracted behavior or test expectations requires the reapproval or replanning declared in `context.md`; a commit note alone is insufficient.
+
+StageRelay may hash prompts or explanatory files in its snapshot manifest, but
+those supplemental hashes do not make the files authoritative.
 
 ## Naming
 

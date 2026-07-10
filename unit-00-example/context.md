@@ -1,11 +1,13 @@
 # Unit 00 - [Unit Name] - Execution Contract
 
-This file is the authoritative execution handoff for this unit. Complete it under
-the project's `planning-contract.md`, replace every placeholder, and
-obtain approval before snapshot or execution. Derived prompts may restate this
-contract but may not override it.
+This file is the sole authoritative execution handoff for this unit. Complete
+the fields required by the selected profile under the project's
+`planning-contract.md`, then obtain explicit human approval before StageRelay
+imports it. Derived prompts may restate this contract but may not override it.
 
 ## Contract Identity and Approval
+
+Required for every profile.
 
 | Field | Value |
 | --- | --- |
@@ -13,40 +15,40 @@ contract but may not override it.
 | `planning_profile` | [small / medium / large] |
 | `unit_id` | [unit-NN-stable-slug] |
 | `objective` | [One observable outcome] |
-| `handoff_prepared_by` | [Human / agent / process identity] |
-| `handoff_prepared_at` | [ISO 8601 timestamp with offset] |
 | `approval_state` | [draft / approved / superseded] |
 | `approved_by` | [Human identity or accountable role] |
 | `approved_at` | [ISO 8601 timestamp with offset] |
 
-## Source Baseline and Governing Sources
+## Source Baseline
+
+Required for every profile.
 
 | Field | Value |
 | --- | --- |
 | Target repository | [Canonical repository identity and path] |
-| Source revision | [Full commit ID or immutable VCS revision] |
-| Dirty state | [false / true] |
-| Included dirty paths | [none / exact paths included in the snapshot] |
+| Source revision | [Full commit ID or other immutable VCS revision] |
 
-Every governing source must be approved or otherwise identified by its role and
-hashed as snapshotted. Add rows as needed.
+### Medium/Large planning-source provenance
+
+Required for medium and large; small may omit this subsection. Hash the exact
+approved bytes of every governing source.
 
 | Path | Authority role | State / version | SHA-256 |
 | --- | --- | --- | --- |
 | `[project-relative plan path]` | Governing project scope and decisions | [approved / version] | `[64 lowercase hex]` |
 | `[project-relative work-unit breakdown path]` | Governing decomposition and shared constraints | [approved / version] | `[64 lowercase hex]` |
-| `[research path or none]` | Referenced evidence only | [reviewed / none] | `[digest or none]` |
-| `[requirement/design source]` | [Governing or referenced role] | [approved / version] | `[digest]` |
+| `[research or requirement source]` | [Referenced evidence or governing role] | [state / version] | `[digest]` |
 
-If these sources conflict with this contract, stop and return to planning. Do not
-select a source ad hoc. `context.md` is hashed externally by the execution
-snapshot manifest and must not contain its own digest.
+If a governing source conflicts with this contract, stop and return to planning.
+StageRelay does not resolve the contradiction. StageRelay computes the
+authoritative `context.md` SHA-256 externally when creating its snapshot.
 
-## Objective, Current State, and Decisions
+## Optional Planning Context
+
+Optional for every profile. Omit it when the objective, scope, instructions, and
+invariants already provide enough context.
 
 ### Current state
-
-[Describe the repository baseline before this unit starts.]
 
 - Existing files or modules: `[path]` - [current responsibility]
 - Existing tests: `[path]` - [what is covered]
@@ -55,56 +57,54 @@ snapshot manifest and must not contain its own digest.
 ### Decisions fixed by planning
 
 - [Decision the executor must not reopen]
-- [Decision the executor must not reopen]
 
 ## Scope and Boundaries
+
+Required for every profile.
 
 ### Included behavior and deliverables
 
 - [Behavior, API, fixture, migration, config, or user-facing slice]
-- [Validation artifact]
-- [Documentation or handoff artifact]
+- [Validation or documentation deliverable]
 
 ### Excluded behavior
 
-- [Deferred behavior or dependent unit]
-- [Planning question that must not be solved during execution]
+- [Deferred behavior, dependent unit, or question not solved during execution]
 
 ### Path and operation boundaries
 
 | Boundary | Value |
 | --- | --- |
 | Allowed paths | [Exact project-relative paths or globs] |
-| Forbidden paths | [Exact paths/globs; use `none` only after review] |
+| Forbidden paths | [Exact paths/globs, or reviewed `none`] |
 | Allowed operations | [Read/write/test/build actions] |
 | Forbidden operations | [Destructive, external-write, deploy, secret, or other limits] |
 
-More permissive access does not grant permission to exceed these boundaries.
+More permissive system access does not grant permission to exceed these
+boundaries.
 
-## Dependencies and Concurrency
+## Medium/Large Dependencies and Concurrency
 
-Use `none` only when reviewed and genuinely empty. A mutable unit name alone is
-not a dependency identity.
+Required for medium and large; small may omit this section.
 
 | Dependency unit / artifact | Required immutable identity | Evidence before start |
 | --- | --- | --- |
-| [unit ID or artifact] | [Snapshot digest / commit ID / contract digest] | [Command or manifest check] |
+| [unit ID / artifact / reviewed `none`] | [Snapshot digest / commit ID / contract digest / none] | [Manifest check / none] |
 
 | Named shared resource | Access | Conflicts with | Coordination rule |
 | --- | --- | --- | --- |
-| [schema / migration chain / fixture / service / none] | [exclusive / shared-read / none] | [Unit IDs / none] | [Lock, serialization, or none] |
+| [schema / migration chain / fixture / service / reviewed `none`] | [exclusive / shared-read / none] | [Unit IDs / none] | [Serialize, lock, or none] |
 
-Downstream units: [Unit IDs or none]
+Downstream units: [Unit IDs, reviewed `none`, or omit when not needed]
 
-## Implementation Instructions
+## Implementation Instructions and Invariants
 
-These are authoritative. `prompt-impl.md` may expand them into an operational
-sequence without changing their meaning.
+Required for every profile. These instructions are authoritative;
+`prompt-impl.md` may expand them without changing their meaning.
 
 1. [Minimum production behavior]
-2. [Owned interface, schema, migration, configuration, or resource update]
-3. [Integration/error/retry/recovery behavior]
-4. [Required documentation or fixture update]
+2. [Owned interface, schema, configuration, resource, or documentation update]
+3. [Required integration/error/retry/recovery behavior]
 
 Invariants:
 
@@ -112,85 +112,71 @@ Invariants:
 - [Compatibility, privacy, security, performance, or migration rule]
 - [No hidden dependency on live or unstable systems]
 
-## Validation and Completion Contract
+## Validation and Completion Requirements
 
-### Commands
-
-Commands are exact and run from [working directory]. Environment prerequisites:
-[deterministic prerequisites or `none`].
+Required for every profile. Commands are exact and run from [working directory].
+Environment prerequisites: [deterministic prerequisites or reviewed `none`].
 
 | ID | Phase | Exact command | Completion criterion |
 | --- | --- | --- | --- |
-| [VAL-RED-01] | RED | `[targeted command]` | [Matches the RED contract below] |
+| [VAL-RED-01] | RED | `[targeted command]` | [Matches the expected RED below] |
 | [VAL-GREEN-01] | GREEN | `[targeted command]` | [Named checks pass with expected result] |
-| [VAL-REG-01] | GREEN | `[full relevant suite]` | [No regressions] |
-| [VAL-QUAL-01] | GREEN | `[build/lint/typecheck command]` | [Expected exit/result] |
+| [VAL-REG-01] | GREEN | `[full relevant suite or reviewed none]` | [No regressions / not applicable reason] |
+| [VAL-QUAL-01] | GREEN | `[build/lint/typecheck or reviewed none]` | [Expected result / not applicable reason] |
 
 ### Expected RED
 
-For non-behavior-changing small work only, write
-`not-applicable: <reviewed reason>` and name the baseline validation above.
+For work without an intended behavioral RED, record
+`not-applicable: <reviewed reason>` and identify the baseline validation above.
+The remaining RED fields may then be omitted.
 
 | Field | Expected value |
 | --- | --- |
-| Validation ID | [VAL-RED-01] |
+| Validation ID | [VAL-RED-01 / not-applicable reason] |
 | Test/check identifier | [Fully qualified test, assertion, contract check, or diagnostic ID] |
 | Allowed behavioral failure class | [Assertion mismatch / typed notImplemented sentinel / approved compile-time contract failure] |
 | Expected exit/result | [Exact exit code or structured result] |
 | Required output signature | [Stable substring/diagnostic or `not-required: <reason>`] |
 | Forbidden failure classes | setup; discovery/collection; unrelated import/compile; configuration; fixture loading; timeout; dependency availability; infrastructure |
 
-RED is valid only when the named check fails for the allowed behavior, the result
-and signature match, and no forbidden class appears. Already GREEN, a different
-assertion, or an ambiguous failure must halt and escalate.
+StageRelay accepts observed RED only when the named check fails for the allowed
+behavior, the result and signature match, and no forbidden class appears.
+Already GREEN, a different assertion, or an ambiguous failure stops execution.
 
-### Required GREEN evidence
+### Required GREEN Evidence Specification
 
-| Criterion / validation ID | Required evidence | Retention location |
+This table defines what StageRelay must later observe and retain. It does not
+claim that execution-time results already exist.
+
+| Criterion / validation ID | Expected successful result | Required runtime record |
 | --- | --- | --- |
-| [VAL-GREEN-01] | [Command, exit/result, named passing checks, output signature] | [`SUMMARY.md` section / artifact path] |
-| [VAL-REG-01] | [Command, exit/result, suite counts or named checks] | [`SUMMARY.md` section / artifact path] |
-| [VAL-QUAL-01] | [Command, exit/result, relevant output] | [`SUMMARY.md` section / artifact path] |
+| [VAL-GREEN-01] | [Exit/result and named passing checks] | [StageRelay summary/manifest or artifact path] |
+| [VAL-REG-01] | [Exit/result and suite counts, or not applicable] | [StageRelay summary/manifest or artifact path] |
+| [VAL-QUAL-01] | [Exit/result and relevant output, or not applicable] | [StageRelay summary/manifest or artifact path] |
 
-Completion requires all included behavior and acceptance criteria to be observed,
-all required GREEN evidence to be retained, temporary RED stubs to be removed,
-and downstream work to require no hidden setup.
+Completion requires StageRelay to record observed GREEN evidence satisfying this
+specification, remove temporary RED stubs, and verify all included behavior and
+completion criteria.
 
-## Approval Points and Change Control
+## Approval, Replanning, and Escalation
 
-| Approval point | Approver | Required before | Evidence |
+The approval identity above is required for every profile. Medium and large units
+add conditional approval gates where applicable; small may omit this table.
+
+| Conditional approval point | Approver | Required before | Approval record |
 | --- | --- | --- | --- |
-| Unit contract | [Human identity / role] | Snapshot and execution | [Approval record] |
-| [Breaking contract / migration / destructive action / release / none] | [Identity / role] | [Action] | [Approval record] |
+| [Breaking contract / migration / destructive action / release / reviewed `none`] | [Identity / role] | [Action / none] | [Record / none] |
 
-Any change to identity, provenance, scope/boundaries, dependencies/resources,
-implementation instructions, validation/RED/GREEN criteria, approvals, or derived
-artifact contents/digests requires a new contract digest and reapproval.
+Update and reapprove this contract before changing its identity, source baseline,
+scope/boundaries, authoritative instructions/invariants, validation and RED/GREEN
+requirements, profile-required dependencies/resources, or approval rules.
 
 Replanning is required for changes to the objective, accepted behavior,
 architecture, dependency graph, cross-unit contracts, security/privacy posture,
 destructive actions, or governing plan scope. Project-specific triggers:
 
-- [Trigger]
-- [Trigger]
+- [Material trigger]
 
-## Derived and Copied Artifact Provenance
-
-These artifacts are non-authoritative. Hash their exact snapshotted bytes after
-derivation; update this table and reapprove if their contents change.
-
-| Artifact | Classification | Derived/copied from | SHA-256 |
-| --- | --- | --- | --- |
-| `prompt-test.md` | Derived RED instructions | `context.md` contract version/digest recorded by snapshot | `[64 lowercase hex]` |
-| `prompt-impl.md` | Derived GREEN + REFACTOR instructions | `context.md` contract version/digest recorded by snapshot | `[64 lowercase hex]` |
-| `README.md` | Copied explanatory guidance | `[template source revision and path]` | `[64 lowercase hex]` |
-
-`SUMMARY.md`, `RESULTS.md`, and `ESCALATION.md` are generated after handoff and
-are recorded in execution evidence rather than approved as planning inputs.
-
-## Escalation Triggers
-
-Stop and return to planning when any replan trigger occurs, a dependency identity
-does not match, a digest fails, a boundary must be crossed, RED fails for a
-forbidden/ambiguous reason, required approval is missing, or repeated validation
-does not converge.
+Stop and return to planning when a material trigger occurs, a required identity
+does not match, a boundary must be crossed, RED has a forbidden or ambiguous
+cause, required approval is missing, or repeated validation does not converge.

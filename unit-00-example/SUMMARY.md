@@ -13,7 +13,7 @@
 | Implementation Prompt | [`prompt-impl.md`](./prompt-impl.md) |
 | Contract Version | [1.0] |
 | Snapshot / Contract Digest | [Snapshot ID and context.md SHA-256] |
-| Source Revision | [Full commit ID plus recorded dirty state] |
+| Source Revision | [Full immutable commit ID / VCS revision] |
 
 ## Work Completed
 
@@ -58,9 +58,10 @@ If there are no findings, write:
 No blocking review findings.
 ```
 
-## Validation Evidence
+## Observed GREEN Evidence and Behavioral RED Result
 
-Record the exact checks that were run.
+Record the runtime results StageRelay observed against the contract's expected
+RED and required GREEN evidence specification.
 
 | Contract validation ID | Phase | Exact command / method | Exit / result | Named check and evidence |
 | --- | --- | --- | --- | --- |
@@ -75,9 +76,9 @@ If a check was not run, explain why and identify the closest completed validatio
 
 | Item | Expected identity | Observed identity | Result |
 | --- | --- | --- | --- |
-| Governing source digests | [From `context.md`] | [Observed SHA-256 values] | [Pass / Fail] |
-| Dependency identities | [Required snapshot/commit/contract digests] | [Observed identities] | [Pass / Fail] |
-| Derived/copied artifacts | [Digests from `context.md`] | [Observed SHA-256 values] | [Pass / Fail] |
+| Governing source digests | [Medium/large values from `context.md`, or not applicable] | [Observed SHA-256 values / not applicable] | [Pass / Fail / N/A] |
+| Dependency identities | [Medium/large required identities, or not applicable] | [Observed identities / not applicable] | [Pass / Fail / N/A] |
+| Supplemental artifact hashes | [Optional StageRelay manifest values] | [Observed hashes / not recorded] | [Pass / Fail / N/A] |
 | Boundaries and approvals | [Contract requirements] | [Observed approvals/actions] | [Pass / Fail] |
 
 ## Files Changed

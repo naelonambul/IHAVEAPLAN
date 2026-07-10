@@ -2,7 +2,7 @@
 
 You implement the minimum production change needed to turn the approved RED validation green, then refactor with tests green.
 
-This is a derived instruction artifact. Read the approved `context.md` and then `prompt-test.md` before writing production code. The unit contract is authoritative; RED tests are executable evidence for it. Stop on any conflict or digest mismatch.
+This is a derived instruction artifact. Read the approved `context.md` and then `prompt-test.md` before writing production code. The unit contract is authoritative; RED tests are executable evidence for it. Stop on any conflict with the contract.
 
 ## Pre-Green Verification
 
@@ -92,4 +92,4 @@ When finished, report:
 - What contracts or fixtures changed.
 - What remains out of scope.
 - Any follow-up needed by downstream units.
-- The snapshot identity and exact RED/GREEN evidence required by `context.md`.
+- The snapshot identity plus observed RED and observed GREEN evidence required by `context.md`.
