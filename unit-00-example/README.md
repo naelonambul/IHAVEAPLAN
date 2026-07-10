@@ -2,7 +2,10 @@
 
 This folder is a reusable example structure for one TDD work unit.
 
-Use it after `plan.md` and `work-units.md` have identified a concrete unit of work. Copy this folder, rename it to the real unit number and slug, then replace placeholders in each file.
+Use it after `plan.md` and `work-units.md` have identified a concrete unit of
+work. Copy this folder, rename it to the real unit number and slug, then apply the
+project's `planning-contract.md`. Approve `context.md` before execution and
+replace every placeholder in snapshotted files.
 
 ```bash
 cp -R unit-00-example unit-01-your-unit-name
@@ -14,10 +17,10 @@ Each unit folder should contain:
 
 | File | Purpose |
 | --- | --- |
-| `context.md` | Planning context, current state, decisions, dependencies, and invariants |
-| `prompt-test.md` | RED prompt: failing validation first, with only minimal sentinel stubs if needed |
-| `prompt-impl.md` | GREEN + REFACTOR prompt: implement against the red tests, then clean up safely |
-| `SUMMARY.md` | Reviewer evaluation, validation evidence, findings, follow-up, and commit history |
+| `context.md` | Authoritative versioned execution contract: identity, provenance, boundaries, dependencies, instructions, validation, and approvals |
+| `prompt-test.md` | Derived RED instructions; cannot override `context.md` |
+| `prompt-impl.md` | Derived GREEN + REFACTOR instructions; cannot override `context.md` |
+| `SUMMARY.md` | Generated reviewer evaluation and execution evidence |
 
 Optional files after execution:
 
@@ -28,22 +31,22 @@ Optional files after execution:
 
 ## Execution Order
 
-1. Read `context.md`.
-2. Run the `prompt-test.md` work.
-3. Confirm the build still compiles and the new behavioral tests fail for the expected reason.
-4. Run the `prompt-impl.md` work.
-5. Confirm the target suite and full relevant suite pass.
-6. Record summary, risks, and follow-up work.
+1. Approve `context.md`; derive prompts and record their digests.
+2. Snapshot and verify the contract, source revision, sources, dependencies, boundaries, shared resources, approvals, and artifact digests.
+3. Run `prompt-test.md` and accept RED only when it matches the contract's behavioral failure semantics.
+4. Run `prompt-impl.md` against the unchanged approved contract.
+5. Capture the required targeted and full-suite GREEN evidence.
+6. Record summary, provenance, risks, and follow-up work.
 
 ## TDD Rules
 
 - The test step may add stubs only to make the build compile.
 - Stub bodies must return sentinel values or throw typed `notImplemented` errors. Do not use crash-only placeholders such as `fatalError`.
 - The implementation step must confirm the new suite is red before writing production logic.
-- Tests are the specification once the RED commit lands.
+- Tests are executable evidence for the approved unit contract; they do not supersede it.
 - Production code should be the minimum needed to turn the approved validation green.
 - Refactoring happens only while tests remain green.
-- Any change to test expectations during implementation must be justified in the commit body or summary.
+- Any change to a contracted test expectation requires the reapproval or replanning declared in `context.md`; a commit note alone is insufficient.
 
 ## Naming
 

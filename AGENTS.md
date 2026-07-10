@@ -19,6 +19,8 @@ Current workflow templates:
 - `work-units.md`
 - `unit-00-example/`
 
+The normative planning-to-execution rules are in `planning-contract.md`.
+
 ## Workflow
 
 Start from the user's certainty level:
@@ -29,7 +31,10 @@ Start from the user's certainty level:
 - Approved plan ready for execution breakdown: use `work-units.md`.
 - TDD task-folder structure needed: copy `unit-00-example/`.
 
-When applying these templates to another project, copy filled planning files into that project's root unless the project already has a docs convention. Copy unit folders to `tasks/unit-NN-short-name/` or the project's equivalent task directory.
+When applying these templates to another project, copy filled planning files and
+`planning-contract.md` into that project's root unless the project already has a
+docs convention. Copy unit folders to `tasks/unit-NN-short-name/` or the
+project's equivalent task directory.
 
 ## Style rules
 
@@ -46,7 +51,8 @@ Preserve the separation between files:
 - `research-summary.md` records evidence and rejected options.
 - `plan.md` defines executable implementation scope and checkpoints.
 - `work-units.md` breaks an approved plan into agent-sized work units.
-- `unit-00-example/` provides a concrete TDD folder shape for one executable unit.
+- `planning-contract.md` defines authority, versioning, provenance, profiles, and handoff verification.
+- `unit-00-example/context.md` provides the authoritative per-unit contract shape; its prompts are derived instructions.
 
 ## Execution loop
 

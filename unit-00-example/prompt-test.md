@@ -2,7 +2,7 @@
 
 You write failing validation first.
 
-Read `context.md`, `plan.md`, and `work-units.md` before making changes. Your job is to specify behavior with tests, fixtures, contracts, or acceptance specs. Do not implement production behavior in this step.
+This is a derived instruction artifact. Read the approved `context.md`; read a governing source only when that contract directs you to it. If this prompt conflicts with the contract or its recorded digest does not match, stop. Your job is to specify the contracted behavior with tests, fixtures, contracts, or acceptance specs. Do not implement production behavior in this step.
 
 ## Repo
 
@@ -88,7 +88,8 @@ Cover:
 After this step:
 
 - [ ] The project builds.
-- [ ] The new suite fails for the expected reason.
+- [ ] Every contracted test/check identifier fails with the allowed behavioral failure class, expected exit/result, and required output signature.
+- [ ] No setup, discovery/collection, unrelated import/compile, configuration, fixture, timeout, dependency, or infrastructure failure is counted as RED.
 - [ ] Existing unrelated tests are not broken.
 - [ ] Production behavior was not implemented beyond sentinel stubs.
 - [ ] Any temporary stub is named and easy to find.
@@ -113,6 +114,7 @@ test(unit-00): failing specs for [unit behavior] (Red)
 Include in the commit body or handoff note:
 
 - Which tests are expected to fail.
+- The observed exit/result and output signature proving the contracted RED.
 - Which stubs are temporary.
 - Which existing suites must stay green.
 - Any fixture, host, device, service, or environment requirement.

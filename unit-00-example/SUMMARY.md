@@ -11,6 +11,9 @@
 | Source Context | [`context.md`](./context.md) |
 | Test Prompt | [`prompt-test.md`](./prompt-test.md) |
 | Implementation Prompt | [`prompt-impl.md`](./prompt-impl.md) |
+| Contract Version | [1.0] |
+| Snapshot / Contract Digest | [Snapshot ID and context.md SHA-256] |
+| Source Revision | [Full commit ID plus recorded dirty state] |
 
 ## Work Completed
 
@@ -59,14 +62,23 @@ No blocking review findings.
 
 Record the exact checks that were run.
 
-| Check | Command / Method | Result | Notes |
-| --- | --- | --- | --- |
-| Targeted suite | `[command]` | [Pass / Fail / Not run] | [Output summary] |
-| Full relevant suite | `[command]` | [Pass / Fail / Not run] | [Output summary] |
-| Build / typecheck / lint | `[command]` | [Pass / Fail / Not run] | [Output summary] |
-| Manual or visual check | [Method] | [Pass / Fail / Not run] | [Evidence] |
+| Contract validation ID | Phase | Exact command / method | Exit / result | Named check and evidence |
+| --- | --- | --- | --- | --- |
+| [VAL-RED-01] | RED | `[command]` | [Observed result] | [Expected identifier, allowed failure class, signature; confirm no forbidden class] |
+| [VAL-GREEN-01] | GREEN | `[command]` | [Observed result] | [Passing identifiers and retained output] |
+| [VAL-REG-01] | GREEN | `[command]` | [Observed result] | [Suite counts / retained output] |
+| [VAL-QUAL-01] | GREEN | `[command]` | [Observed result] | [Build/lint/typecheck evidence] |
 
 If a check was not run, explain why and identify the closest completed validation.
+
+## Handoff Provenance Verification
+
+| Item | Expected identity | Observed identity | Result |
+| --- | --- | --- | --- |
+| Governing source digests | [From `context.md`] | [Observed SHA-256 values] | [Pass / Fail] |
+| Dependency identities | [Required snapshot/commit/contract digests] | [Observed identities] | [Pass / Fail] |
+| Derived/copied artifacts | [Digests from `context.md`] | [Observed SHA-256 values] | [Pass / Fail] |
+| Boundaries and approvals | [Contract requirements] | [Observed approvals/actions] | [Pass / Fail] |
 
 ## Files Changed
 

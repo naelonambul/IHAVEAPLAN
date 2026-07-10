@@ -5,7 +5,9 @@
 | Status          | [Draft / Approved / Superseded]            |
 | Date            | [YYYY-MM-DD]                               |
 | Owner           | [Owner / Team / Agent]                     |
-| Source of Truth | [PRD / Design Doc / Specification / Issue] |
+| Approved By     | [Human identity / role, or none while draft] |
+| Approved At     | [ISO 8601 timestamp with offset, or none]  |
+| Governing Sources | [PRD / Design Doc / Specification / Issue] |
 | Scope           | [What this plan covers]                    |
 | Methodology     | [TDD / Incremental delivery / Other]       |
 
@@ -28,6 +30,10 @@ Before execution begins, confirm:
 * [ ] Superseded or obsolete requirements have been identified.
 * [ ] External dependencies and constraints are known.
 * [ ] Success criteria are measurable.
+
+An approved plan governs project scope and decisions, but is not by itself an
+execution handoff. Executable units must be materialized and approved under
+[`planning-contract.md`](./planning-contract.md).
 
 ---
 

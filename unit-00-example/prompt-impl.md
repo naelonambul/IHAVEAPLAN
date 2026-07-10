@@ -2,14 +2,14 @@
 
 You implement the minimum production change needed to turn the approved RED validation green, then refactor with tests green.
 
-Read `context.md` and `prompt-test.md` before writing production code. The RED tests are the current specification.
+This is a derived instruction artifact. Read the approved `context.md` and then `prompt-test.md` before writing production code. The unit contract is authoritative; RED tests are executable evidence for it. Stop on any conflict or digest mismatch.
 
 ## Pre-Green Verification
 
 Before implementation:
 
 - [ ] Run the targeted test command from `prompt-test.md`.
-- [ ] Confirm the new suite is RED for the expected reason.
+- [ ] Confirm RED matches every identifier, allowed failure class, exit/result, and output signature in `context.md`, with no forbidden failure class.
 - [ ] Confirm unrelated existing failures, if any, are documented.
 - [ ] Identify all temporary stubs added by the test step.
 
@@ -32,7 +32,7 @@ Keep the first green pass small. Avoid unrelated cleanup, broad rewrites, or spe
 
 - Preserve existing public contracts unless this unit explicitly owns a breaking change.
 - Do not weaken or delete tests to make the suite pass.
-- If a test expectation is objectively wrong, update it only with a clear explanation in the commit body or summary.
+- If a test expectation conflicts with the contract, stop for the declared reapproval or replanning; do not repair authority with a commit note alone.
 - Keep unstable dependencies behind seams, fakes, fixtures, or gated integration checks.
 - Keep performance, security, privacy, compatibility, and migration rules from `context.md`.
 - Remove or replace all sentinel stubs introduced during the RED step.
@@ -92,3 +92,4 @@ When finished, report:
 - What contracts or fixtures changed.
 - What remains out of scope.
 - Any follow-up needed by downstream units.
+- The snapshot identity and exact RED/GREEN evidence required by `context.md`.

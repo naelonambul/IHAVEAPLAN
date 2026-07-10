@@ -1,101 +1,196 @@
-# Unit 00 - [Unit Name] - Context
+# Unit 00 - [Unit Name] - Execution Contract
 
-## Why
+This file is the authoritative execution handoff for this unit. Complete it under
+the project's `planning-contract.md`, replace every placeholder, and
+obtain approval before snapshot or execution. Derived prompts may restate this
+contract but may not override it.
 
-[Explain why this unit exists. Link it to `plan.md`, `work-units.md`, a milestone, issue, PRD, design decision, bug, or risk.]
+## Contract Identity and Approval
 
-## Goal
+| Field | Value |
+| --- | --- |
+| `contract_version` | `1.0` |
+| `planning_profile` | [small / medium / large] |
+| `unit_id` | [unit-NN-stable-slug] |
+| `objective` | [One observable outcome] |
+| `handoff_prepared_by` | [Human / agent / process identity] |
+| `handoff_prepared_at` | [ISO 8601 timestamp with offset] |
+| `approval_state` | [draft / approved / superseded] |
+| `approved_by` | [Human identity or accountable role] |
+| `approved_at` | [ISO 8601 timestamp with offset] |
 
-[State the observable behavior, contract, or integration this unit must deliver.]
+## Source Baseline and Governing Sources
 
-## Current State
+| Field | Value |
+| --- | --- |
+| Target repository | [Canonical repository identity and path] |
+| Source revision | [Full commit ID or immutable VCS revision] |
+| Dirty state | [false / true] |
+| Included dirty paths | [none / exact paths included in the snapshot] |
+
+Every governing source must be approved or otherwise identified by its role and
+hashed as snapshotted. Add rows as needed.
+
+| Path | Authority role | State / version | SHA-256 |
+| --- | --- | --- | --- |
+| `[project-relative plan path]` | Governing project scope and decisions | [approved / version] | `[64 lowercase hex]` |
+| `[project-relative work-unit breakdown path]` | Governing decomposition and shared constraints | [approved / version] | `[64 lowercase hex]` |
+| `[research path or none]` | Referenced evidence only | [reviewed / none] | `[digest or none]` |
+| `[requirement/design source]` | [Governing or referenced role] | [approved / version] | `[digest]` |
+
+If these sources conflict with this contract, stop and return to planning. Do not
+select a source ad hoc. `context.md` is hashed externally by the execution
+snapshot manifest and must not contain its own digest.
+
+## Objective, Current State, and Decisions
+
+### Current state
 
 [Describe the repository baseline before this unit starts.]
 
-- Existing files or modules:
-  - `[path]` - [current responsibility]
-- Existing tests:
-  - `[path]` - [what is already covered]
-- Existing gaps:
-  - [Missing behavior, missing contract, missing fixture, broken flow, or known risk]
+- Existing files or modules: `[path]` - [current responsibility]
+- Existing tests: `[path]` - [what is covered]
+- Known gap: [missing behavior, contract, fixture, flow, or risk]
 
-## Design Decided by Planning
+### Decisions fixed by planning
 
-[Record decisions that the test and implementation agents should not reopen.]
+- [Decision the executor must not reopen]
+- [Decision the executor must not reopen]
 
-- [Decision 1]
-- [Decision 2]
-- [Decision 3]
+## Scope and Boundaries
 
-## Scope
-
-This unit includes:
+### Included behavior and deliverables
 
 - [Behavior, API, fixture, migration, config, or user-facing slice]
 - [Validation artifact]
 - [Documentation or handoff artifact]
 
-This unit excludes:
+### Excluded behavior
 
-- [Deferred behavior]
-- [Dependent unit]
-- [Planning question that must not be solved ad hoc]
+- [Deferred behavior or dependent unit]
+- [Planning question that must not be solved during execution]
 
-## Dependencies
+### Path and operation boundaries
 
-Required before this unit starts:
+| Boundary | Value |
+| --- | --- |
+| Allowed paths | [Exact project-relative paths or globs] |
+| Forbidden paths | [Exact paths/globs; use `none` only after review] |
+| Allowed operations | [Read/write/test/build actions] |
+| Forbidden operations | [Destructive, external-write, deploy, secret, or other limits] |
 
-- [Prior unit / contract / decision / fixture / environment]
+More permissive access does not grant permission to exceed these boundaries.
 
-Downstream units that depend on this:
+## Dependencies and Concurrency
 
-- [Unit ID / feature / integration]
+Use `none` only when reviewed and genuinely empty. A mutable unit name alone is
+not a dependency identity.
 
-## Invariants
+| Dependency unit / artifact | Required immutable identity | Evidence before start |
+| --- | --- | --- |
+| [unit ID or artifact] | [Snapshot digest / commit ID / contract digest] | [Command or manifest check] |
 
-These rules must remain true:
+| Named shared resource | Access | Conflicts with | Coordination rule |
+| --- | --- | --- | --- |
+| [schema / migration chain / fixture / service / none] | [exclusive / shared-read / none] | [Unit IDs / none] | [Lock, serialization, or none] |
 
-- [Existing suite or behavior stays green]
-- [No incompatible contract change]
+Downstream units: [Unit IDs or none]
+
+## Implementation Instructions
+
+These are authoritative. `prompt-impl.md` may expand them into an operational
+sequence without changing their meaning.
+
+1. [Minimum production behavior]
+2. [Owned interface, schema, migration, configuration, or resource update]
+3. [Integration/error/retry/recovery behavior]
+4. [Required documentation or fixture update]
+
+Invariants:
+
+- [Existing behavior or suite that must remain green]
+- [Compatibility, privacy, security, performance, or migration rule]
 - [No hidden dependency on live or unstable systems]
-- [Privacy, security, performance, or compatibility rule]
 
-## Validation Strategy
+## Validation and Completion Contract
 
-Validation should cover:
+### Commands
 
-- Valid input or happy path
-- Invalid input
-- Missing or partial input
-- Boundary values
-- Duplicate or repeated execution
-- Retry, timeout, fallback, or unavailable dependency if relevant
-- Regression coverage for any existing behavior this unit touches
+Commands are exact and run from [working directory]. Environment prerequisites:
+[deterministic prerequisites or `none`].
 
-## Fixtures and Test Assets
+| ID | Phase | Exact command | Completion criterion |
+| --- | --- | --- | --- |
+| [VAL-RED-01] | RED | `[targeted command]` | [Matches the RED contract below] |
+| [VAL-GREEN-01] | GREEN | `[targeted command]` | [Named checks pass with expected result] |
+| [VAL-REG-01] | GREEN | `[full relevant suite]` | [No regressions] |
+| [VAL-QUAL-01] | GREEN | `[build/lint/typecheck command]` | [Expected exit/result] |
 
-Required assets:
+### Expected RED
 
-- [Fixture / golden output / mock / stub / sample file]
+For non-behavior-changing small work only, write
+`not-applicable: <reviewed reason>` and name the baseline validation above.
 
-Asset rules:
+| Field | Expected value |
+| --- | --- |
+| Validation ID | [VAL-RED-01] |
+| Test/check identifier | [Fully qualified test, assertion, contract check, or diagnostic ID] |
+| Allowed behavioral failure class | [Assertion mismatch / typed notImplemented sentinel / approved compile-time contract failure] |
+| Expected exit/result | [Exact exit code or structured result] |
+| Required output signature | [Stable substring/diagnostic or `not-required: <reason>`] |
+| Forbidden failure classes | setup; discovery/collection; unrelated import/compile; configuration; fixture loading; timeout; dependency availability; infrastructure |
 
-- [How to refresh stale fixtures]
-- [How to gate integration fixtures that require a special host, device, or service]
-- [How to avoid relying on live unstable systems in blocking tests]
+RED is valid only when the named check fails for the allowed behavior, the result
+and signature match, and no forbidden class appears. Already GREEN, a different
+assertion, or an ambiguous failure must halt and escalate.
 
-## References
+### Required GREEN evidence
 
-- [`plan.md`](../plan.md)
-- [`research-summary.md`](../research-summary.md)
-- [`work-units.md`](../work-units.md)
-- [Requirement, issue, design doc, API doc, or research note]
+| Criterion / validation ID | Required evidence | Retention location |
+| --- | --- | --- |
+| [VAL-GREEN-01] | [Command, exit/result, named passing checks, output signature] | [`SUMMARY.md` section / artifact path] |
+| [VAL-REG-01] | [Command, exit/result, suite counts or named checks] | [`SUMMARY.md` section / artifact path] |
+| [VAL-QUAL-01] | [Command, exit/result, relevant output] | [`SUMMARY.md` section / artifact path] |
+
+Completion requires all included behavior and acceptance criteria to be observed,
+all required GREEN evidence to be retained, temporary RED stubs to be removed,
+and downstream work to require no hidden setup.
+
+## Approval Points and Change Control
+
+| Approval point | Approver | Required before | Evidence |
+| --- | --- | --- | --- |
+| Unit contract | [Human identity / role] | Snapshot and execution | [Approval record] |
+| [Breaking contract / migration / destructive action / release / none] | [Identity / role] | [Action] | [Approval record] |
+
+Any change to identity, provenance, scope/boundaries, dependencies/resources,
+implementation instructions, validation/RED/GREEN criteria, approvals, or derived
+artifact contents/digests requires a new contract digest and reapproval.
+
+Replanning is required for changes to the objective, accepted behavior,
+architecture, dependency graph, cross-unit contracts, security/privacy posture,
+destructive actions, or governing plan scope. Project-specific triggers:
+
+- [Trigger]
+- [Trigger]
+
+## Derived and Copied Artifact Provenance
+
+These artifacts are non-authoritative. Hash their exact snapshotted bytes after
+derivation; update this table and reapprove if their contents change.
+
+| Artifact | Classification | Derived/copied from | SHA-256 |
+| --- | --- | --- | --- |
+| `prompt-test.md` | Derived RED instructions | `context.md` contract version/digest recorded by snapshot | `[64 lowercase hex]` |
+| `prompt-impl.md` | Derived GREEN + REFACTOR instructions | `context.md` contract version/digest recorded by snapshot | `[64 lowercase hex]` |
+| `README.md` | Copied explanatory guidance | `[template source revision and path]` | `[64 lowercase hex]` |
+
+`SUMMARY.md`, `RESULTS.md`, and `ESCALATION.md` are generated after handoff and
+are recorded in execution evidence rather than approved as planning inputs.
 
 ## Escalation Triggers
 
-Stop and return to planning if:
-
-- A required contract must change outside this unit's scope.
-- A fixture or external dependency makes the validation nondeterministic.
-- The implementation needs a new user-facing behavior not listed in scope.
-- The failing test reveals that the planned behavior contradicts existing accepted behavior.
+Stop and return to planning when any replan trigger occurs, a dependency identity
+does not match, a digest fails, a boundary must be crossed, RED fails for a
+forbidden/ambiguous reason, required approval is missing, or repeated validation
+does not converge.

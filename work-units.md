@@ -5,7 +5,10 @@
 | Status | [Draft / Approved / Superseded] |
 | Date | [YYYY-MM-DD] |
 | Owner | [Owner / Team / Agent] |
-| Source of Truth | [plan.md / PRD / issue / design doc] |
+| Approved By | [Human identity / role, or none while draft] |
+| Approved At | [ISO 8601 timestamp with offset, or none] |
+| Governing Plan | [approved plan.md path and revision] |
+| Planning Profile | [small / medium / large] |
 | Phase / Release | [Phase, milestone, or release name] |
 | Methodology | [TDD / incremental delivery / agent handoff / other] |
 
@@ -17,7 +20,7 @@ This document breaks an approved implementation plan into small, executable work
 
 Use this after `plan.md` exists. The plan explains what should be built and why. This file explains how to split the work into independently executable units with clear dependencies, validation, and completion criteria.
 
-Each work unit should be small enough for one focused implementation pass, but large enough to deliver a meaningful behavior, interface, or integration step.
+Each work unit should be small enough for one focused implementation pass, but large enough to deliver a meaningful behavior, interface, or integration step. This document governs decomposition and cross-unit constraints. Execution begins only from an approved unit `context.md` conforming to [`planning-contract.md`](./planning-contract.md).
 
 ---
 
@@ -83,6 +86,15 @@ Parallelization rules:
 - If a unit introduces a breaking contract change, schedule it before dependent work.
 - If two units need the same unresolved decision, resolve or isolate the decision before either starts.
 
+### Named Shared Resources
+
+For medium and large profiles, name every resource whose concurrent mutation
+could make otherwise independent units conflict. Use `none` only after review.
+
+| Resource name | Type / boundary | Access mode | Used by | Coordination rule |
+| --- | --- | --- | --- | --- |
+| [database-schema / migration-chain / shared-fixture / service / none] | [Path or logical boundary] | [exclusive / shared-read / none] | [Unit IDs / none] | [Serialize, lock, or none] |
+
 ---
 
 ## 4. Work Unit Index
@@ -105,7 +117,11 @@ Complexity guide:
 
 Copy this section for each unit.
 
-For units executed by agents, also copy `unit-00-example/` into a numbered unit folder and fill in `context.md`, `prompt-test.md`, `prompt-impl.md`, and `SUMMARY.md`.
+For execution, copy `unit-00-example/` into a numbered unit folder. Materialize
+and approve `context.md` as the unit contract first, then derive
+`prompt-test.md` and `prompt-impl.md`. `SUMMARY.md` is generated execution
+evidence. See [`planning-contract.md`](./planning-contract.md) for the normative
+fields and profile requirements.
 
 ### Unit [NN] - [unit-name]
 
@@ -125,6 +141,8 @@ For units executed by agents, also copy `unit-00-example/` into a numbered unit 
 **Validation first:**
 
 - [ ] [Failing unit test / contract test / fixture / acceptance check]
+- [ ] Expected RED reason: [assertion/test ID or required output that proves the intended behavior is missing]
+- [ ] RED must not count: [collection/import/configuration/fixture/infrastructure failures]
 - [ ] [Failure-path test]
 - [ ] [Boundary or regression test]
 - [ ] [Integration or smoke check if needed]
@@ -142,6 +160,19 @@ For units executed by agents, also copy `unit-00-example/` into a numbered unit 
 - [ ] [Observable failure behavior]
 - [ ] [Edge cases covered]
 - [ ] [No regression in dependent units]
+
+**Execution handoff:**
+
+- Unit contract: `tasks/unit-NN-name/context.md`
+- Contract version: [1.0]
+- Planning profile: [small / medium / large]
+- Approval: [approved by identity at timestamp]
+- Provenance: [source revision plus governing-source and derived-artifact SHA-256 digests]
+- Boundaries: [allowed paths, forbidden paths, and operational limits]
+- Dependencies: [unit ID plus required snapshot/commit/contract digest, or `none`]
+- Concurrency: [named shared resources and access mode, or `none`]
+- RED/GREEN: [expected behavioral failure contract and required completion evidence]
+- Reapproval/replan triggers: [contract fields and project-specific triggers]
 
 **Handoff notes:**
 

@@ -14,6 +14,12 @@ When technical choices need evidence, [`research-summary.md`](./research-summary
 
 When the plan is approved, [`work-units.md`](./work-units.md) can be used to break that plan into executable work units for agents.
 
+For execution engines, [`planning-contract.md`](./planning-contract.md) defines the
+versioned handoff. The approved unit `context.md` is the authoritative execution
+input; source revisions and digests, RED/GREEN semantics, boundaries,
+dependencies, provenance, and approval points make it snapshot-verifiable. The
+test and implementation prompts are derived and cannot override that contract.
+
 For a concrete TDD unit-folder shape, copy [`unit-00-example/`](./unit-00-example/).
 
 ## What This Is
@@ -44,7 +50,8 @@ certainty actually is, and skip stages that are already settled.
 1. [`research-summary.md`](./research-summary.md) - Capture evidence, rejected options, risks, and technical findings when decisions need research. (Seed §1 from the research questions produced by `brainstorm.md`.)
 2. [`plan.md`](./plan.md) - Turn requirements and research into an implementation plan.
 3. [`work-units.md`](./work-units.md) - Break the approved plan into executable units with dependencies and validation.
-4. [`unit-00-example/`](./unit-00-example/) - Copy for each TDD work unit and fill in `context.md`, `prompt-test.md`, `prompt-impl.md`, and `SUMMARY.md`.
+4. [`planning-contract.md`](./planning-contract.md) - Apply the shared contract and choose a proportional small, medium, or large profile.
+5. [`unit-00-example/`](./unit-00-example/) - Copy for each TDD work unit; approve `context.md`, then derive `prompt-test.md` and `prompt-impl.md` from it.
 
 Where to start:
 
@@ -93,6 +100,7 @@ cp work-units.md ./your-project/work-units.md
 To create a TDD work-unit folder:
 
 ```bash
+cp planning-contract.md ./your-project/planning-contract.md
 cp -R unit-00-example ./your-project/tasks/unit-01-your-unit-name
 ```
 
@@ -124,6 +132,7 @@ This template is built around a few practical rules:
 | [`research-summary.md`](./research-summary.md) | Template for research findings, evidence-backed decisions, rejected options, risks, and references |
 | [`plan.md`](./plan.md) | Reusable implementation-plan template |
 | [`work-units.md`](./work-units.md) | Template for breaking a plan into executable work units |
+| [`planning-contract.md`](./planning-contract.md) | Normative versioned planning-to-execution contract, profiles, authority, and migration rules |
 | [`unit-00-example/`](./unit-00-example/) | Example TDD unit folder with context, RED prompt, GREEN + REFACTOR prompt, and reviewer summary |
 | [`README.md`](./README.md) | Repository overview and usage guide |
 
